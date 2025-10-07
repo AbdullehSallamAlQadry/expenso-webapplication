@@ -1,0 +1,20 @@
+//The main color using.
+$Main-bg: hsl(337, 25%, 94%);
+$Main-text: hsl(170, 100%, 5%);
+$Main-accent: hsl(115, 41%, 23%);
+$Card-bg: hsl(37, 90%, 96%);
+$Card-text: hsl(154, 95%, 8%);
+$Card-accent: hsl(115, 41%, 43%);
+$Button-bg: hsl(115, 41%, 23%);
+$Button-text: hsl(337, 25%, 94%);
+$Card-cards-bg:hsl(38, 90%, 98%);
+
+@mixin header() {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid $Card-text;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}

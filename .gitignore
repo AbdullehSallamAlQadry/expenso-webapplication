@@ -1,0 +1,50 @@
+# =======================
+# Python / Django
+# =======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.pot
+*.pyc
+*.db
+*.sqlite3
+*.mo
+venv/
+.env
+
+# Django specific
+media/
+staticfiles/
+*.bak
+*.swp
+
+# =======================
+# React / Node (Frontend)
+# =======================
+expenso/node_modules/
+expenso/build/
+expenso/.env
+expenso/.cache
+expenso/dist/
+expenso/.parcel-cache
+
+# =======================
+# IDE / OS
+# =======================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =======================
+# Custom / Temporary
+# =======================
+temp/
+*.zip
+*.tar
+*.rar
+
+# =======================
+.venv

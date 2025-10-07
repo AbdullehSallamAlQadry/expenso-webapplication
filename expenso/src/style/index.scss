@@ -1,0 +1,703 @@
+@import "tools.scss";
+@import "Home.scss", "Settings.scss";
+
+@mixin header() {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid $Card-text;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  width: 100vw;       
+  height: 100vh;      
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $Main-bg;
+  margin: 0;          
+  overflow: hidden;   
+}
+
+//The page contain the sign and login form.
+.sign_login_container{
+  background-image:url('../images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+//The component used for both login and signup. 
+@mixin login_signup() {
+  border: none;
+  background-color: rgba($Card-bg, 0.9);
+  color: $Card-text;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+ 
+  img{
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button[type="submit"] {
+      width: 100%;
+      border: none;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: $Card-accent;
+      color: $Card-text;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: darken($Card-accent, 10%);
+    }
+
+    .input-group{
+      border: 1px solid $Card-accent;
+      padding: 0 5px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background-color: inherit;
+      color: $Card-text;
+      border-radius: 5px;
+      margin: 5px 0;
+      input[type = "text"], input[type = "password"] {
+        width: 100%;
+        border: none;
+        margin-bottom: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: inherit;
+        outline: none;
+      };  
+      input::placeholder {
+        color: $Card-text;
+      };
+    };
+  }
+  
+  h1 {
+    color: $Main-text;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  p {
+    color: $Main-text;
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  a {
+    color: $Main-accent;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  border-radius: 10px;
+  width: 20rem;
+}
+
+.login-container {
+  @include login_signup;
+}
+
+.register-container {
+  @include login_signup;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: $Card-bg;
+  border-radius: 20px;
+}
+
+.seletion-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 76%;
+  height: 86%;
+  background-color: $Card-cards-bg;
+  border-radius: 20px;
+  margin: 2%;
+  padding: 1% 2rem;
+  box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 20px;
+  img{
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.User-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  color: $Card-text;
+  margin-bottom: 3rem;
+  .img-field{
+    color: $Button-text;
+    font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $Button-bg;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    cursor:default;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  h1{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+}
+
+.profile-btn-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 39rem;
+  .profile-btn{
+    width: 12rem;
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-align: left;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 100ms;
+  }
+  .hover{
+    background-color: $Button-bg;
+    color: $Button-text;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+  }
+  .profile-btn:hover{
+    background-color: $Button-bg;
+    color: $Button-text;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+  }
+}
+
+.loader{
+  margin-top: 1rem;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  svg{
+    animation: load 1s linear infinite;
+    @keyframes load {
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+@mixin headerBtn() {
+  cursor: pointer;
+  margin: 3px;
+  padding: 2px 4px;
+  color: $Button-text;
+  background-color: $Button-bg;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 10px;
+  padding: 10px;
+  opacity: 0.8;
+}
+
+@mixin inputs() {
+  padding: 7px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: $Card-accent;
+  color: white;
+  width: 25rem;
+  outline: none;
+}
+
+.Expense-head{
+  @include header();
+  button{
+    @include headerBtn();
+  }
+  button:hover{
+    opacity: 1;
+  };
+}
+
+.Expense-head{
+  @include header();
+  button {
+    @include headerBtn()
+  }
+  button:hover{
+    opacity: 1;
+  };
+}
+
+.ExpenseForm{
+  width: 100%;
+  height: 100%;
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    .form-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      height: 25rem;
+      margin-bottom: 1rem;
+      .label-input{
+        width: 50rem;
+        height: 23rem;
+        display: flex;
+        flex-direction: column;
+
+        .field{
+          width: 100%;
+          margin-bottom: 1.1rem;
+          display: flex;
+          align-items: center;
+
+        ::placeholder{
+          color: #e0e0e0;
+        }
+
+          label{
+            width: 8rem;
+            font-size: 15px;
+            font-weight: bold;
+            color: $Card-text;
+          }
+
+          input{
+            @include inputs();
+          }
+          input[type = "checkbox"]{
+            width: auto;
+          }
+          select{
+            @include inputs();
+          }
+          option{
+            background-color: $Card-bg;
+            color: $Card-text;
+          }
+        }
+
+        .total{
+          select{
+            width: 5rem;
+            margin-left: 1rem;
+          }
+
+          input{
+            width: 19rem;
+          }
+        }
+
+        .description{
+          align-items: start;
+          textarea{
+            @include inputs();
+            resize: none;
+            overflow: hidden;
+          }
+        }
+      }
+      .img-btn{
+        font-size: 1.3rem;
+        width: 22rem;
+        height: 24rem;
+        border: none;
+        outline: none ;
+        background-color: $Card-accent;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+        img{
+          width: 22rem;
+          height: 24rem;
+        }
+      }      
+    }
+    .form-footer{
+      display: flex;
+      align-items: center;
+      p{
+        margin-right: 1rem;
+        color:red;
+        font-weight: bold;
+        font-size: 13px;
+      }
+      button{
+        font-size: 1rem;
+        width: 5rem;
+        height: 3rem;
+        border: none;
+        outline: none ;
+        background-color: $Card-accent;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+      }
+    }
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.file-preview{
+  width: 3rem;
+  button{
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    outline: none ;
+    background-color: $Card-accent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+  } 
+}
+
+
+.fliter_container{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 76%;
+  margin-top: -1rem;
+  height: 86%;
+  border-radius: 20px;
+  
+  .filter_bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backdrop-filter: blur(2px);
+    background-color: rgba($color: #FFFFFF, $alpha: 0.2);
+  }
+  
+  .filter_form{
+    z-index: 2;
+    background-color: $Card-bg;
+    height: fit-content;
+    width: 30rem;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.4);
+
+    .btn_panel{
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      margin-bottom: 10px;
+      
+      button{
+        @include headerBtn();
+      }
+      
+      button:hover {
+        opacity: 1;
+      }
+
+      .submit_btn{
+        font-size: 1rem;
+        margin-top: 20px;
+      }
+    }
+
+    .filter_feild{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      h6{
+        font-size: 1rem;
+        color: $Card-text;
+      }
+
+      select{
+        cursor: pointer;
+        @include inputs();
+        width: 17rem;
+      }
+
+      option{
+        background-color: $Card-bg;
+        color: $Card-text;
+      }
+
+      .reimbursable_filter_btn{
+        cursor: pointer;
+        background-color: #FFFFFF;
+        color: $Card-accent;
+        margin-left: 10px;
+        padding: 5px 10px;
+        border-radius: 10px;
+      }
+
+      .reimbursable_filter_btn.active{
+        background-color: $Card-accent;
+        color: $Card-cards-bg;
+      }
+
+      .order_filter_btn{
+        cursor: pointer;
+        background-color: #FFFFFF;
+        color: $Card-accent;
+        margin-left: 10px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        
+      }
+
+      .order_filter_btn.active{
+        background-color: $Card-accent;
+        color: $Card-cards-bg;
+      }
+    }
+  }
+}
+
+.search_bar{
+  width: 22rem;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  color: $Card-text;
+  border: 1px solid $Card-accent;
+  input{
+    color: $Card-text;
+    border-radius: 20px;
+    width: 20rem;
+    border: none;
+    padding: 0.3rem 0rem 0.3rem 1rem;
+    font-size: 1rem;
+    outline: none;
+  }
+  input::placeholder{
+    color: $Card-accent;
+  }
+}
+
+.table_container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  input[type='checkbox']{
+    width: 20px;
+    margin-left: 30px;
+  }
+  input[type='checkbox']{
+    accent-color: $Card-accent;
+    cursor: pointer;
+  }
+
+  .table_head{
+    display: grid;
+    grid-template-columns: 5rem 1fr 1fr 1fr 1fr;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .table_body{
+    width: 100% ;
+    height: 24rem;
+    box-sizing: border-box;
+    .table_item{
+      margin-bottom: 2px;
+      display: grid;
+      grid-template-columns: 5rem 1fr 1fr 1fr 1fr;
+      padding: 10px 0px;
+      width: 100%;
+      background-color: hsl(115, 41%, 95%);
+      cursor: pointer;
+      .detail_container{
+        display: flex;
+        p {
+          background-color: $Card-accent;
+          color: #FFFFFF;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+        div {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+      }
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+      }
+      .reimburs {
+        width: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        height: 40px;
+      }
+      .reimburs.green{
+        background-color: green;
+      }
+      .reimburs.red{
+        background-color: red;
+      }
+    }
+    .second {
+      background-color: hsl(115, 41%, 90%);
+    }
+    .table_item:hover{
+      background-color: hsl(145, 41%, 85%);
+    }
+  }
+}
+
+.page_container {
+  height: 2.5rem;
+  button{
+    height: 2rem;
+    width: 2rem;
+    margin: 0px 3px;
+    opacity: 0.8;
+    border-radius: 10px;
+    background-color: $Card-accent;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover{
+    opacity: 1;
+  }
+  .active{
+    background-color: #FFFFFF;
+    color: $Card-accent;
+    border: 2px solid $Card-accent;
+  }
+}
+
+.table_error{
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer{
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  color:$Main-accent;
+  background-color: rgba($Card-bg, 0.8);
+  font-size: 15px;
+  width: 14rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  a{
+    margin-left: 3px;
+    text-decoration: none;
+    color:$Main-accent;
+  }
+}

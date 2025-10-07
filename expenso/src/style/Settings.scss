@@ -1,0 +1,15 @@
+@import "tools.scss";
+
+@mixin header() {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid $Card-text;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.Settings-head{
+  @include header()
+}
